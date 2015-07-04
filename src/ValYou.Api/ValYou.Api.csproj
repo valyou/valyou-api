@@ -131,6 +131,7 @@
     <Compile Include="Operation\ShapeOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\IGetShapes.cs" />
+    <Compile Include="Response\FeatureResponse.cs" />
     <Compile Include="Response\ShapesResponse.cs" />
     <Compile Include="ServiceInterface\ShapesService.cs" />
   </ItemGroup>

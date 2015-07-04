@@ -101,13 +101,13 @@
         private void ConfigureSerialization(Container container)
         {
             // Set JSON web services to return idiomatic JSON camelCase properties
-            JsConfig.EmitCamelCaseNames = true;
+            JsConfig.EmitCamelCaseNames = false;
+            JsConfig.EmitLowercaseUnderscoreNames = false;
 
             // Set JSON web services to return ISO8601 date format
             JsConfig.DateHandler = DateHandler.ISO8601;
 
             // Exclude type info during serialization,
-            // except for UserSession DTO
             JsConfig.ExcludeTypeInfo = true;
         }
 
