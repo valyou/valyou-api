@@ -15,6 +15,9 @@
     using ServiceStack.Text;
     using ServiceStack.Validation;
 
+    using ValYou.Api.Data;
+    using ValYou.Api.ServiceInterface;
+
     /// <summary>
     /// The Web Application host.
     /// </summary>
@@ -34,7 +37,7 @@
         /// Initializes a new instance of the <see cref="AppHost"/> class.
         /// </summary>
         public AppHost()
-            : base("ValYou REST API", typeof(AppHost).Assembly)
+            : base("ValYou REST API", typeof(ShapesService).Assembly)
         {
         }
 
@@ -143,6 +146,7 @@
             container.Register<IDbConnectionFactory>(dbConn);
 
             // Register repositories
+            container.Register<IShapeRepository>(c => new ShapeRepository(c.Resolve<IDbConnectionFactory>()));
 
             // NOTE: Service Interfaces are auto-injected by ServiceStack
         }
