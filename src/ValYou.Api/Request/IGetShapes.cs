@@ -2,5 +2,6 @@
 {
     public interface IGetShapes
     {
+        int Ecology { get; set; }
     }
 }

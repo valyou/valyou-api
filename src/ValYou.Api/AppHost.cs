@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
 
+    using Akka.Actor;
+
     using Funq;
 
     using ServiceStack;
@@ -15,6 +17,7 @@
     using ServiceStack.Text;
     using ServiceStack.Validation;
 
+    using ValYou.Api.Actor;
     using ValYou.Api.Data;
     using ValYou.Api.ServiceInterface;
 
@@ -58,6 +61,9 @@
 
             // Configure ServiceStack database connections
             ConfigureDataConnection(container);
+
+            // Configure Akka actors
+            ConfigureActors(container);
 
             // Configure ServiceStack Fluent Validation plugin
             ConfigureValidation(container);
@@ -118,6 +124,11 @@
             // Set configuration parameters
             AppConfig = new AppConfig(AppSettings);
             // TODO: Inject AppConfig
+        }
+
+        private void ConfigureActors(Container container)
+        {
+            Global.ActorSystem.ActorOf(Props.Create(() => new CoordinatorActor(container.Resolve<IShapeRepository>())), "coord");
         }
 
         /// <summary>

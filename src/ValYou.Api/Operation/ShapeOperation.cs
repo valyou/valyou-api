@@ -1,9 +1,11 @@
 ﻿namespace ValYou.Api.Operation
 {
+    using System.Collections.Generic;
     using System.Runtime.Serialization;
 
     using ServiceStack;
 
+    using ValYou.Api.Data;
     using ValYou.Api.Request;
     using ValYou.Api.Response;
 
