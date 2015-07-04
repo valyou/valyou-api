@@ -26,6 +26,8 @@
                         Shape_Leng = shape.ShapeLeng,
                         Shape_Area = shape.ShapeArea
                     };
+
+            this.geometry = new FeatureResponseGeometry();
         }
 
         [DataMember]
@@ -33,6 +35,9 @@
 
         [DataMember]
         public FeatureResponseProperties properties { get; set; }
+
+        [DataMember]
+        public FeatureResponseGeometry geometry { get; set; }
     }
 
     public class FeatureResponseProperties
@@ -78,5 +83,19 @@
 
         [DataMember]
         public float Shape_Area { get; set; }
+    }
+
+    public class FeatureResponseGeometry
+    {
+        public FeatureResponseGeometry()
+        {
+            this.coordinates = new [] { new [] { new [] { new [] { 115.182, -34.425 } } } };
+        }
+
+        [DataMember]
+        public string type { get { return "MultiPolygon"; } }
+
+        [DataMember]
+        public double[][][][] coordinates { get; set; }
     }
 }
