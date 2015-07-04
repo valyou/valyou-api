@@ -52,6 +52,9 @@
 
         [Alias("geom")]
         [Ignore]
-        public string geometry { get; set; }
+        public string Geometry { get; set; }
+
+        [Alias("geom_text")]
+        public string GeometryText { get; set; }
     }
 }

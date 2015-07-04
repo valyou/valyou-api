@@ -28,6 +28,7 @@
                     };
 
             this.geometry = new FeatureResponseGeometry();
+            this.see = shape.GeometryText;
         }
 
         [DataMember]
@@ -38,6 +39,9 @@
 
         [DataMember]
         public FeatureResponseGeometry geometry { get; set; }
+
+        [DataMember]
+        public string see { get; set; }
     }
 
     public class FeatureResponseProperties
